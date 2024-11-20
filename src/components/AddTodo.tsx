@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import "../styles/AddTodo.css";
 
 interface AddTodoProps {
   onAdd: (todo: string) => void;

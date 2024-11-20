@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import "../styles/EditTodo.css"
 
 interface EditTodoProps {
   todo: string;
@@ -19,7 +20,7 @@ const EditTodo: React.FC<EditTodoProps> = ({ todo, onEdit }) => {
 
   return (
     <>
-      <button onClick={() => setIsEditing(true)}>Editar</button>
+      <button className='edit-todo' onClick={() => setIsEditing(true)}>Editar</button>
 
       {isEditing && (
         <div className="modal">

@@ -7,23 +7,37 @@ interface EditTodoProps {
 }
 
 const EditTodo: React.FC<EditTodoProps> = ({ todo, onEdit }) => {
+  const [isEditing, setIsEditing] = useState(false);
   const [newTodo, setNewTodo] = useState(todo);
 
   const handleEdit = () => {
     if (newTodo.trim()) {
       onEdit(newTodo);
+      setIsEditing(false);
     }
   };
 
   return (
-    <div className="edit-todo">
-      <input
-        type="text"
-        value={newTodo}
-        onChange={(e) => setNewTodo(e.target.value)}
-      />
-      <button onClick={handleEdit}>Guardar</button>
-    </div>
+    <>
+      <button onClick={() => setIsEditing(true)}>Editar</button>
+
+      {isEditing && (
+        <div className="modal">
+          <div className="modal-content">
+            <h3>Editar tarea</h3>
+            <input
+              type="text"
+              value={newTodo}
+              onChange={(e) => setNewTodo(e.target.value)}
+            />
+            <div className="modal-actions">
+              <button onClick={handleEdit}>Guardar</button>
+              <button onClick={() => setIsEditing(false)}>Cancelar</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </>
   );
 };
 

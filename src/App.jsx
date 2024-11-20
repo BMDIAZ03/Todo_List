@@ -7,9 +7,6 @@ const App = () => {
       LISTA DE TAREAS
       </h1>
       <TodoList />
-        {/*<input type="text" id="todoInput" name="todoInput" placeholder="Escribe tu tarea..."/>
-        <button>Añadir</button>
-        <ul id="todoList" ></ul>*/}
     </div>
   )
 }

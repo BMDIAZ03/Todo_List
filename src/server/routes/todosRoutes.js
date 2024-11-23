@@ -1,11 +1,13 @@
-import { Router } from "express";
-import { getTodos, addTodo, deleteTodo, updateTodo } from "../controllers/todosController.js";
+import express from "express";
+import todosController from "../controllers/todosController.js";
 
-const router = Router();
+const router = express.Router();
 
-router.get("/", getTodos);
-router.post("/", addTodo);
-router.delete("/:id", deleteTodo);
-router.put("/:id", updateTodo);
+// Rutas para las tareas
+router.get("/", todosController.getTodos);
+router.post("/", todosController.addTodo);
+router.delete("/:id", todosController.deleteTodo);
+router.put("/:id", todosController.updateTodo);
 
 export default router;
+
